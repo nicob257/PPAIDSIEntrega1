@@ -32,14 +32,14 @@
             this.tituloSelLlamada = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grdLlamada = new System.Windows.Forms.DataGridView();
-            this.btnCsv = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DuracionLlamada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RespuestasSeleccionadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescPreguntas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescripcionEncuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCsv = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdLlamada)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,26 +91,6 @@
             this.grdLlamada.Size = new System.Drawing.Size(1324, 100);
             this.grdLlamada.TabIndex = 5;
             // 
-            // btnCsv
-            // 
-            this.btnCsv.Location = new System.Drawing.Point(366, 630);
-            this.btnCsv.Name = "btnCsv";
-            this.btnCsv.Size = new System.Drawing.Size(116, 49);
-            this.btnCsv.TabIndex = 6;
-            this.btnCsv.Text = "Generar CSV";
-            this.btnCsv.UseVisualStyleBackColor = true;
-            this.btnCsv.Click += new System.EventHandler(this.btnCsv_Click);
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Location = new System.Drawing.Point(770, 630);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(116, 49);
-            this.btnImprimir.TabIndex = 7;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
             // Cliente
             // 
             this.Cliente.HeaderText = "Cliente";
@@ -141,6 +121,7 @@
             this.RespuestasSeleccionadas.MinimumWidth = 6;
             this.RespuestasSeleccionadas.Name = "RespuestasSeleccionadas";
             this.RespuestasSeleccionadas.ReadOnly = true;
+            this.RespuestasSeleccionadas.Width = 125;
             // 
             // DescPreguntas
             // 
@@ -157,6 +138,26 @@
             this.DescripcionEncuesta.Name = "DescripcionEncuesta";
             this.DescripcionEncuesta.ReadOnly = true;
             this.DescripcionEncuesta.Width = 200;
+            // 
+            // btnCsv
+            // 
+            this.btnCsv.Location = new System.Drawing.Point(366, 630);
+            this.btnCsv.Name = "btnCsv";
+            this.btnCsv.Size = new System.Drawing.Size(116, 49);
+            this.btnCsv.TabIndex = 6;
+            this.btnCsv.Text = "Generar CSV";
+            this.btnCsv.UseVisualStyleBackColor = true;
+            this.btnCsv.Click += new System.EventHandler(this.btnCsv_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(770, 630);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(116, 49);
+            this.btnImprimir.TabIndex = 7;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // FormSeleccionLlamada
             // 

@@ -60,11 +60,21 @@ namespace PPAIDSIEntrega1.Clases
             List<String> textos = new List<string>();
             // textos.AddRange(new string[] { DescripcionOperador, DetalleOpcionRequerida, Duracion, EncuestaEnviada.ToString(),
             //    ObservacionAuditor, ClienteAsociado.obtenerNombreCliente() });
-            textos.Add(DescripcionOperador);
-            textos.Add(DetalleOpcionRequerida);
-            textos.Add(Duracion);
-            textos.Add(EncuestaEnviada.ToString());
-            textos.Add(ObservacionAuditor);
+            // ANTES
+            // 0 = DescripcionOperador
+            // 1 = DetalleOpcionRequerida
+            // 2 = Duracion
+            // 3 = EncuestaEnviada.ToString();
+            // 4 = ObservacionAuditor
+            // 5 = ClienteAsociado.obtenerNombreCliente
+            // 6 = ClienteAsociado.obtenerNombreCliente()
+
+
+            // AHORA
+            // 0 = Nombre Cliente
+            // 1 = Estado Actual
+            // 2 = Duracion
+            // 3 = Respuestas
             textos.Add(ClienteAsociado.obtenerNombreCliente());
             for (int i = 0; i < CambiosEst.Count; i++)
             {
@@ -73,10 +83,15 @@ namespace PPAIDSIEntrega1.Clases
                     textos.Add(CambiosEst[i].obtenerEstado());
                 }
             }
-
+            textos.Add(Duracion);
             textos.Add(getRespuestas());
-            
- 
+            return textos;
+
+
+
+
+
+
             //string texto = "";
             //texto = "Descripción de operador: " + DescripcionOperador + " | Detalle Opcion requerida: "
             //    + DetalleOpcionRequerida + " | Duración: " + Duracion + " | Encuesta enviada: " +
@@ -91,8 +106,8 @@ namespace PPAIDSIEntrega1.Clases
             //private Cliente ClienteAsociado;
             //private List<CambioEstado> CambiosEst;
             //private List<RespuestaDeCliente> RespuestasCliente;
-            return textos;
-         }
+
+        }
         public string getRespuestas()
         {
             string texto = "";
@@ -127,6 +142,11 @@ namespace PPAIDSIEntrega1.Clases
         {
             CambiosEst[CambiosEst.Count -1].FinEstado = DateTime.Now;
             CambiosEst.Add(nuevoCe);
+        }
+
+        public int getid
+        {
+            get => Id;
         }
     }
 }

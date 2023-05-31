@@ -137,6 +137,7 @@ namespace PPAIDSIEntrega1
 
 
         }
+
         //private void AgregarPersona(Persona per)
         //{
         //    DataGridViewRow fila = new DataGridViewRow();
