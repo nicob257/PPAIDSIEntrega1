@@ -39,8 +39,8 @@ namespace PPAIDSIEntrega1.Clases
         public void consultarEncuesta()
         {
             //List<Llamada> arrayLlamadas = new List<Llamada>();
-            Llamada llam1 = new Llamada(1, "", "", "6m20s", true, "", "39924511", "Matias", "3513221641");
-            Llamada llam2 = new Llamada(2, "", "", "12m46s", true, "", "32115644", "Facundo", "3516428615");
+            Llamada llam1 = new Llamada(4, "", "", "6m20s", true, "", "39924511", "Matias", "3513221641");
+            Llamada llam2 = new Llamada(7, "", "", "12m46s", true, "", "32115644", "Facundo", "3516428615");
             CambioEstado ceLlam2 = new CambioEstado("finalizado");
             llam2.actualizarEstado(ceLlam2);
             CambioEstado ceLlam1 = new CambioEstado("finalizado");
@@ -79,8 +79,7 @@ namespace PPAIDSIEntrega1.Clases
 
         public void buscarLlamadasConEncuestasRespondidas()
         {
-            int posY = 17;
-            int separacionY = 25;
+            arrayIdLlamadas.Clear();
             for (int i = 0; i < arrayLlamadas.Count; i++)
             {
                 if (arrayLlamadas[i].esDePeriodo(fechaInicio, fechaFin) && arrayLlamadas[i].tieneEncuestaRespondida())
@@ -94,9 +93,11 @@ namespace PPAIDSIEntrega1.Clases
                     //posY += separacionY;
                     //radBtn.CheckedChanged += RadBtn_CheckedChanged;
                     arrayIdLlamadas.Add(arrayLlamadas[i].getid);
-                    PantallaAsociada.pedirSeleccionLlamada(arrayIdLlamadas);
+                    
                 }
+                
             }
+            PantallaAsociada.pedirSeleccionLlamada(arrayIdLlamadas);
         }
 
 
@@ -111,13 +112,15 @@ namespace PPAIDSIEntrega1.Clases
             seleccionLlamada = id;
             for (int i = 0; i < arrayLlamadas.Count; i++)
             {
-                if (arrayLlamadas[i].getid.Equals(id-1))
+                if (arrayLlamadas[i].getid.Equals(id))
                 {
                     arrayLlamadas[i].obtenerDatosLlamada();
+                    arrayIdsRP = arrayLlamadas[i].obtenerIdsRp();
                 }
 
             }
-            arrayIdsRP = arrayLlamadas[id - 1].obtenerIdsRp();
+
+            //arrayIdsRP = arrayLlamadas[id - 1].obtenerIdsRp();
             for (int i = 0; i < arrayEncuestas.Count; i++)
             {
                 //MessageBox.Show(arrayLlamadas[idLlamada - 1].obtenerIdsRp().ToString());
@@ -131,7 +134,14 @@ namespace PPAIDSIEntrega1.Clases
 
 
             //List<string> datosLlamada = null;
-            datosLlamadaSeleccionada = arrayLlamadas[seleccionLlamada - 1].obtenerDatosLlamada();
+            for (int i = 0; i < arrayLlamadas.Count; i++)
+            {
+                if (arrayLlamadas[i].getId().Equals(id))
+                {
+                    datosLlamadaSeleccionada = arrayLlamadas[i].obtenerDatosLlamada();
+                }
+            }
+            //datosLlamadaSeleccionada = arrayLlamadas[seleccionLlamada - 1].obtenerDatosLlamada();
             //List<int> arrayIdsRP = arrayLlamadas[seleccionLlamada - 1].obtenerIdsRp();
             DataGridViewRow fila = new DataGridViewRow();
 

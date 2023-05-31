@@ -41,7 +41,6 @@ namespace PPAIDSIEntrega1
 
         public void btnBuscarEncuestas_Click(object sender, EventArgs e)
         {
-
             //FormSeleccionLlamada ventanaLlamadas = new FormSeleccionLlamada(dateTimeInicio.Value, dateTimeFin.Value);
             //ventanaLlamadas.Show();
             //this.Hide();
@@ -73,33 +72,41 @@ namespace PPAIDSIEntrega1
 
         public void pedirSeleccionLlamada(List<int> arrayIdLlamadas)
         {
-            int posY = 17;
-            int separacionY = 25;
+            //MessageBox.Show(arrayIdLlamadas.Count.ToString());
+            //int posY = 17;
+            //int separacionY = 25;
+            cmbSelLamada.Items.Clear();
             for (int i = 0; i < arrayIdLlamadas.Count; i++)
             {
-                RadioButton radBtn = new RadioButton();
-                radBtn.Text = "Llamada " + arrayIdLlamadas[i].ToString();
-                radBtn.Name = arrayIdLlamadas[i].ToString();
-                radBtn.Left = 8;
-                radBtn.Top = posY;
-                panelSelLlamada.Controls.Add(radBtn);
-                posY += separacionY;
-                radBtn.CheckedChanged += RadBtn_CheckedChanged;
+
+               
+                cmbSelLamada.Items.Add(arrayIdLlamadas[i].ToString());
+                
+                //RadioButton radBtn = new RadioButton();
+                //radBtn.Text = "Llamada " + arrayIdLlamadas[i].ToString();
+                //radBtn.Name = arrayIdLlamadas[i].ToString();
+                //radBtn.Left = 8;
+                //radBtn.Top = posY;
+                //panelSelLlamada.Controls.Add(radBtn);
+                //posY += separacionY;
+                //radBtn.CheckedChanged += RadBtn_CheckedChanged;
             }
+            label4.Visible = true;
+            cmbSelLamada.Visible = true;
         }
 
 
-        public void RadBtn_CheckedChanged(object sender, EventArgs e)
-        {
+        //public void RadBtn_CheckedChanged(object sender, EventArgs e)
+        //{
             
-            RadioButton radioButton = (RadioButton)sender;
-            if (radioButton.Checked)
-            {
-                seleccionLlamada = int.Parse(radioButton.Name);
-                tomarSeleccionLlamada(seleccionLlamada);
-            }
+        //    RadioButton radioButton = (RadioButton)sender;
+        //    if (radioButton.Checked)
+        //    {
+        //        seleccionLlamada = int.Parse(radioButton.Name);
+        //        tomarSeleccionLlamada(seleccionLlamada);
+        //    }
             
-        }
+        //}
 
         public void tomarSeleccionLlamada(int id)
         {
@@ -122,6 +129,13 @@ namespace PPAIDSIEntrega1
         {
             MessageBox.Show("Archivo Generado con éxito!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void cmbSelLamada_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            seleccionLlamada = int.Parse(cmbSelLamada.SelectedItem.ToString());
+            tomarSeleccionLlamada(seleccionLlamada);
+        }
+
 
 
         // 0 = DescripcionOperador

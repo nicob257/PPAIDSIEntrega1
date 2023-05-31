@@ -34,7 +34,6 @@
             this.btnBuscarEncuestas = new System.Windows.Forms.Button();
             this.dateTimeInicio = new System.Windows.Forms.DateTimePicker();
             this.dateTimeFin = new System.Windows.Forms.DateTimePicker();
-            this.panelSelLlamada = new System.Windows.Forms.Panel();
             this.grdLlamada2 = new System.Windows.Forms.DataGridView();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +43,8 @@
             this.DescripcionEncuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCsv = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.cmbSelLamada = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdLlamada2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,13 +107,6 @@
             this.dateTimeFin.TabIndex = 7;
             this.dateTimeFin.Visible = false;
             // 
-            // panelSelLlamada
-            // 
-            this.panelSelLlamada.Location = new System.Drawing.Point(16, 229);
-            this.panelSelLlamada.Name = "panelSelLlamada";
-            this.panelSelLlamada.Size = new System.Drawing.Size(230, 400);
-            this.panelSelLlamada.TabIndex = 8;
-            // 
             // grdLlamada2
             // 
             this.grdLlamada2.AllowUserToAddRows = false;
@@ -125,12 +119,12 @@
             this.RespuestasSeleccionadas,
             this.DescPreguntas,
             this.DescripcionEncuesta});
-            this.grdLlamada2.Location = new System.Drawing.Point(16, 642);
+            this.grdLlamada2.Location = new System.Drawing.Point(16, 420);
             this.grdLlamada2.Name = "grdLlamada2";
             this.grdLlamada2.ReadOnly = true;
             this.grdLlamada2.RowHeadersWidth = 51;
             this.grdLlamada2.RowTemplate.Height = 24;
-            this.grdLlamada2.Size = new System.Drawing.Size(931, 125);
+            this.grdLlamada2.Size = new System.Drawing.Size(1078, 125);
             this.grdLlamada2.TabIndex = 9;
             // 
             // Cliente
@@ -183,7 +177,7 @@
             // 
             // btnCsv
             // 
-            this.btnCsv.Location = new System.Drawing.Point(1027, 642);
+            this.btnCsv.Location = new System.Drawing.Point(108, 599);
             this.btnCsv.Name = "btnCsv";
             this.btnCsv.Size = new System.Drawing.Size(116, 49);
             this.btnCsv.TabIndex = 10;
@@ -193,7 +187,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(1027, 718);
+            this.btnImprimir.Location = new System.Drawing.Point(378, 599);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(116, 49);
             this.btnImprimir.TabIndex = 11;
@@ -201,15 +195,39 @@
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
+            // cmbSelLamada
+            // 
+            this.cmbSelLamada.FormattingEnabled = true;
+            this.cmbSelLamada.Location = new System.Drawing.Point(15, 291);
+            this.cmbSelLamada.Name = "cmbSelLamada";
+            this.cmbSelLamada.Size = new System.Drawing.Size(236, 24);
+            this.cmbSelLamada.TabIndex = 12;
+            this.cmbSelLamada.Visible = false;
+            this.cmbSelLamada.SelectionChangeCommitted += new System.EventHandler(this.cmbSelLamada_SelectionChangeCommitted);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.Control;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(12, 246);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(235, 20);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Seleccione el ID de la llamada";
+            this.label4.Visible = false;
+            // 
             // FiltroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 779);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cmbSelLamada);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnCsv);
             this.Controls.Add(this.grdLlamada2);
-            this.Controls.Add(this.panelSelLlamada);
             this.Controls.Add(this.dateTimeFin);
             this.Controls.Add(this.dateTimeInicio);
             this.Controls.Add(this.btnBuscarEncuestas);
@@ -233,7 +251,6 @@
         private System.Windows.Forms.Button btnBuscarEncuestas;
         private System.Windows.Forms.DateTimePicker dateTimeInicio;
         private System.Windows.Forms.DateTimePicker dateTimeFin;
-        private System.Windows.Forms.Panel panelSelLlamada;
         private System.Windows.Forms.DataGridView grdLlamada2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoActual;
@@ -243,5 +260,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionEncuesta;
         private System.Windows.Forms.Button btnCsv;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.ComboBox cmbSelLamada;
+        private System.Windows.Forms.Label label4;
     }
 }
