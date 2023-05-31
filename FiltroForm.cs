@@ -136,6 +136,11 @@ namespace PPAIDSIEntrega1
             tomarSeleccionLlamada(seleccionLlamada);
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
 
         // 0 = DescripcionOperador

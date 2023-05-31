@@ -45,6 +45,7 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.cmbSelLamada = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdLlamada2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,7 +178,7 @@
             // 
             // btnCsv
             // 
-            this.btnCsv.Location = new System.Drawing.Point(108, 599);
+            this.btnCsv.Location = new System.Drawing.Point(243, 599);
             this.btnCsv.Name = "btnCsv";
             this.btnCsv.Size = new System.Drawing.Size(116, 49);
             this.btnCsv.TabIndex = 10;
@@ -187,7 +188,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(378, 599);
+            this.btnImprimir.Location = new System.Drawing.Point(531, 599);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(116, 49);
             this.btnImprimir.TabIndex = 11;
@@ -218,11 +219,22 @@
             this.label4.Text = "Seleccione el ID de la llamada";
             this.label4.Visible = false;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(786, 599);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(116, 49);
+            this.btnCancelar.TabIndex = 14;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // FiltroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 779);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbSelLamada);
             this.Controls.Add(this.btnImprimir);
@@ -262,5 +274,6 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.ComboBox cmbSelLamada;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
