@@ -20,6 +20,7 @@ namespace PPAIDSIEntrega1.Clases
         private Cliente ClienteAsociado;
         private List<CambioEstado> CambiosEst;
         private List<RespuestaDeCliente> RespuestasCliente;
+
         
 
 
@@ -84,7 +85,7 @@ namespace PPAIDSIEntrega1.Clases
                 }
             }
             textos.Add(Duracion);
-            textos.Add(getRespuestas());
+            //textos.Add(getRespuestas());
             return textos;
 
 
@@ -108,14 +109,15 @@ namespace PPAIDSIEntrega1.Clases
             //private List<RespuestaDeCliente> RespuestasCliente;
 
         }
-        public string getRespuestas()
+        public List<string> getRespuestas()
         {
-            string texto = "";
+            //string texto = "";
+            List<String> textos = new List<string>();
             for (int i = 0; i < this.RespuestasCliente.Count; i++)
             {
-                texto += (this.RespuestasCliente[i].obtenerDatosRta() + ", " + '\n');
+                textos.Add(this.RespuestasCliente[i].obtenerDatosRta());
             }
-            return texto;
+            return textos;
         }
 
         public List<int> obtenerIdsRp()

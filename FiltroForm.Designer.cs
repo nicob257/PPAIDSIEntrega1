@@ -35,18 +35,20 @@
             this.dateTimeInicio = new System.Windows.Forms.DateTimePicker();
             this.dateTimeFin = new System.Windows.Forms.DateTimePicker();
             this.grdLlamada2 = new System.Windows.Forms.DataGridView();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DuracionLlamada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RespuestasSeleccionadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescPreguntas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescripcionEncuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCsv = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.cmbSelLamada = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.grdPregYRes = new System.Windows.Forms.DataGridView();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DuracionLlamada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripcionEncuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rtaSelec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descPreg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdLlamada2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPregYRes)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -117,16 +119,83 @@
             this.Cliente,
             this.EstadoActual,
             this.DuracionLlamada,
-            this.RespuestasSeleccionadas,
-            this.DescPreguntas,
             this.DescripcionEncuesta});
-            this.grdLlamada2.Location = new System.Drawing.Point(16, 420);
+            this.grdLlamada2.Location = new System.Drawing.Point(353, 282);
             this.grdLlamada2.Name = "grdLlamada2";
             this.grdLlamada2.ReadOnly = true;
             this.grdLlamada2.RowHeadersWidth = 51;
             this.grdLlamada2.RowTemplate.Height = 24;
-            this.grdLlamada2.Size = new System.Drawing.Size(1078, 125);
+            this.grdLlamada2.Size = new System.Drawing.Size(840, 70);
             this.grdLlamada2.TabIndex = 9;
+            // 
+            // btnCsv
+            // 
+            this.btnCsv.Location = new System.Drawing.Point(353, 630);
+            this.btnCsv.Name = "btnCsv";
+            this.btnCsv.Size = new System.Drawing.Size(116, 49);
+            this.btnCsv.TabIndex = 10;
+            this.btnCsv.Text = "Generar CSV";
+            this.btnCsv.UseVisualStyleBackColor = true;
+            this.btnCsv.Click += new System.EventHandler(this.btnCsv_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(674, 630);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(116, 49);
+            this.btnImprimir.TabIndex = 11;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // cmbSelLamada
+            // 
+            this.cmbSelLamada.FormattingEnabled = true;
+            this.cmbSelLamada.Location = new System.Drawing.Point(15, 291);
+            this.cmbSelLamada.Name = "cmbSelLamada";
+            this.cmbSelLamada.Size = new System.Drawing.Size(236, 24);
+            this.cmbSelLamada.TabIndex = 12;
+            this.cmbSelLamada.Visible = false;
+            this.cmbSelLamada.SelectionChangeCommitted += new System.EventHandler(this.cmbSelLamada_SelectionChangeCommitted);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.Control;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(16, 246);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(235, 20);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Seleccione el ID de la llamada";
+            this.label4.Visible = false;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(966, 630);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(116, 49);
+            this.btnCancelar.TabIndex = 14;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // grdPregYRes
+            // 
+            this.grdPregYRes.AllowUserToAddRows = false;
+            this.grdPregYRes.AllowUserToDeleteRows = false;
+            this.grdPregYRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdPregYRes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rtaSelec,
+            this.descPreg});
+            this.grdPregYRes.Location = new System.Drawing.Point(216, 402);
+            this.grdPregYRes.Name = "grdPregYRes";
+            this.grdPregYRes.ReadOnly = true;
+            this.grdPregYRes.RowHeadersWidth = 51;
+            this.grdPregYRes.RowTemplate.Height = 24;
+            this.grdPregYRes.Size = new System.Drawing.Size(977, 174);
+            this.grdPregYRes.TabIndex = 15;
             // 
             // Cliente
             // 
@@ -152,22 +221,6 @@
             this.DuracionLlamada.ReadOnly = true;
             this.DuracionLlamada.Width = 125;
             // 
-            // RespuestasSeleccionadas
-            // 
-            this.RespuestasSeleccionadas.HeaderText = "Respuestas Seleccionadas";
-            this.RespuestasSeleccionadas.MinimumWidth = 6;
-            this.RespuestasSeleccionadas.Name = "RespuestasSeleccionadas";
-            this.RespuestasSeleccionadas.ReadOnly = true;
-            this.RespuestasSeleccionadas.Width = 125;
-            // 
-            // DescPreguntas
-            // 
-            this.DescPreguntas.HeaderText = "Descripcion Preguntas";
-            this.DescPreguntas.MinimumWidth = 6;
-            this.DescPreguntas.Name = "DescPreguntas";
-            this.DescPreguntas.ReadOnly = true;
-            this.DescPreguntas.Width = 250;
-            // 
             // DescripcionEncuesta
             // 
             this.DescripcionEncuesta.HeaderText = "Descripcion Encuesta";
@@ -176,64 +229,28 @@
             this.DescripcionEncuesta.ReadOnly = true;
             this.DescripcionEncuesta.Width = 200;
             // 
-            // btnCsv
+            // rtaSelec
             // 
-            this.btnCsv.Location = new System.Drawing.Point(243, 599);
-            this.btnCsv.Name = "btnCsv";
-            this.btnCsv.Size = new System.Drawing.Size(116, 49);
-            this.btnCsv.TabIndex = 10;
-            this.btnCsv.Text = "Generar CSV";
-            this.btnCsv.UseVisualStyleBackColor = true;
-            this.btnCsv.Click += new System.EventHandler(this.btnCsv_Click);
+            this.rtaSelec.HeaderText = "Respuesta Seleccionada";
+            this.rtaSelec.MinimumWidth = 6;
+            this.rtaSelec.Name = "rtaSelec";
+            this.rtaSelec.ReadOnly = true;
+            this.rtaSelec.Width = 260;
             // 
-            // btnImprimir
+            // descPreg
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(531, 599);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(116, 49);
-            this.btnImprimir.TabIndex = 11;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // cmbSelLamada
-            // 
-            this.cmbSelLamada.FormattingEnabled = true;
-            this.cmbSelLamada.Location = new System.Drawing.Point(15, 291);
-            this.cmbSelLamada.Name = "cmbSelLamada";
-            this.cmbSelLamada.Size = new System.Drawing.Size(236, 24);
-            this.cmbSelLamada.TabIndex = 12;
-            this.cmbSelLamada.Visible = false;
-            this.cmbSelLamada.SelectionChangeCommitted += new System.EventHandler(this.cmbSelLamada_SelectionChangeCommitted);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.Control;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(12, 246);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(235, 20);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Seleccione el ID de la llamada";
-            this.label4.Visible = false;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(786, 599);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(116, 49);
-            this.btnCancelar.TabIndex = 14;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.descPreg.HeaderText = "Descripción Pregunta";
+            this.descPreg.MinimumWidth = 6;
+            this.descPreg.Name = "descPreg";
+            this.descPreg.ReadOnly = true;
+            this.descPreg.Width = 420;
             // 
             // FiltroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 779);
+            this.Controls.Add(this.grdPregYRes);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbSelLamada);
@@ -250,6 +267,7 @@
             this.Text = "FiltroForm";
             this.Load += new System.EventHandler(this.FiltroForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdLlamada2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPregYRes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,16 +282,17 @@
         private System.Windows.Forms.DateTimePicker dateTimeInicio;
         private System.Windows.Forms.DateTimePicker dateTimeFin;
         private System.Windows.Forms.DataGridView grdLlamada2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoActual;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DuracionLlamada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RespuestasSeleccionadas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DescPreguntas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionEncuesta;
         private System.Windows.Forms.Button btnCsv;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.ComboBox cmbSelLamada;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridView grdPregYRes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoActual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DuracionLlamada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionEncuesta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rtaSelec;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descPreg;
     }
 }

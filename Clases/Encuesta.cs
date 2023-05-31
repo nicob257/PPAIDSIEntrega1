@@ -42,14 +42,14 @@ namespace PPAIDSIEntrega1.Clases
             return Descripcion;
         }
 
-        public string obtenerPreguntas()
+        public List<string> obtenerPreguntas()
         {
-            string texto = "";
+            List<String> textos = new List<String>();
             for (int i = 0; i < ListaPreguntas.Count; i++)
             {
-                texto += ListaPreguntas[i].getDescripcion() + ", " + '\n';
+                textos.Add(ListaPreguntas[i].getDescripcion());
             }
-            return texto;
+            return textos;
         }
     }
 }

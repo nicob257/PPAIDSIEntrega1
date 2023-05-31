@@ -114,12 +114,26 @@ namespace PPAIDSIEntrega1
         }
 
 
-        public void agregarFila(DataGridViewRow fila)
+        public void agregarFilaGrdA(DataGridViewRow fila)
         {
             grdLlamada2.Rows.Clear();
             grdLlamada2.Rows.Add(fila);
         }
 
+        public void limpiarCamposGrdA()
+        {
+            grdLlamada2.Rows.Clear();
+        }
+
+        public void agregarFilaGrdB(DataGridViewRow fila)
+        {
+            grdPregYRes.Rows.Add(fila);
+        }
+
+        public void limpiarCamposGrdB()
+        {
+            grdPregYRes.Rows.Clear();
+        }
         private void btnCsv_Click(object sender, EventArgs e)
         {
             MessageBox.Show("CSV Generado con éxito!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
