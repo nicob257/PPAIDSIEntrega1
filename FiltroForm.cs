@@ -118,6 +118,8 @@ namespace PPAIDSIEntrega1
         {
             seleccionLlamada = int.Parse(cmbSelLamada.SelectedItem.ToString());
             tomarSeleccionLlamada(seleccionLlamada);
+            grdPregYRes.Visible = true;
+            grdLlamada2.Visible = true;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -26,8 +26,6 @@ namespace PPAIDSIEntrega1.Clases
 
         public GestorConsultarEncuesta(FiltroForm pantalla)
         {
-            //fechaInicio = null;
-            //fechaFin = null;
             arrayLlamadas = new List<Llamada>();
             arrayIdsRP = new List<int>();
             datosLlamadaSeleccionada = new List<string>();
@@ -40,14 +38,12 @@ namespace PPAIDSIEntrega1.Clases
 
         public void consultarEncuesta()
         {
-            //List<Llamada> arrayLlamadas = new List<Llamada>();
             Llamada llam1 = new Llamada(4, "", "", "6m20s", true, "", "39924511", "Matias", "3513221641");
             Llamada llam2 = new Llamada(7, "", "", "12m46s", true, "", "32115644", "Facundo", "3516428615");
             CambioEstado ceLlam2 = new CambioEstado("finalizado");
             llam2.actualizarEstado(ceLlam2);
             CambioEstado ceLlam1 = new CambioEstado("finalizado");
             llam1.actualizarEstado(ceLlam1);
-            //List<Encuesta> arrayEncuestas = new List<Encuesta>();
             Encuesta enc1 = new Encuesta("Atencion al cliente", "25/8/2025");
             Pregunta preg1 = new Pregunta("¿Te sentiste cómodo con la atención brindada?");
             RespuestaPosible rp1 = new RespuestaPosible("Si", "Si", 1);

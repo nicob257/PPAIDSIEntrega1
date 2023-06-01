@@ -127,6 +127,7 @@
             this.grdLlamada2.RowTemplate.Height = 24;
             this.grdLlamada2.Size = new System.Drawing.Size(840, 70);
             this.grdLlamada2.TabIndex = 9;
+            this.grdLlamada2.Visible = false;
             // 
             // btnCsv
             // 
@@ -196,6 +197,7 @@
             this.grdPregYRes.RowTemplate.Height = 24;
             this.grdPregYRes.Size = new System.Drawing.Size(977, 174);
             this.grdPregYRes.TabIndex = 15;
+            this.grdPregYRes.Visible = false;
             // 
             // Cliente
             // 
