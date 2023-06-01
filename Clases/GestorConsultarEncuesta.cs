@@ -86,14 +86,6 @@ namespace PPAIDSIEntrega1.Clases
             {
                 if (arrayLlamadas[i].esDePeriodo(fechaInicio, fechaFin) && arrayLlamadas[i].tieneEncuestaRespondida())
                 {
-                    //RadioButton radBtn = new RadioButton();
-                    //radBtn.Text = "Llamada " + arrayLlamadas[i].getId().ToString();
-                    //radBtn.Name = arrayLlamadas[i].getId().ToString();
-                    //radBtn.Left = 8;
-                    //radBtn.Top = posY;
-                    //PantallaAsociada.Controls.Add(radBtn);
-                    //posY += separacionY;
-                    //radBtn.CheckedChanged += RadBtn_CheckedChanged;
                     arrayIdLlamadas.Add(arrayLlamadas[i].getid);
                     
                 }
@@ -122,11 +114,8 @@ namespace PPAIDSIEntrega1.Clases
 
             }
 
-            //arrayIdsRP = arrayLlamadas[id - 1].obtenerIdsRp();
             for (int i = 0; i < arrayEncuestas.Count; i++)
             {
-                //MessageBox.Show(arrayLlamadas[idLlamada - 1].obtenerIdsRp().ToString());
-                //MessageBox.Show(arrayIdsRP[0].ToString());
                 if (arrayEncuestas[i].esEncuestaDeCliente(arrayIdsRP[0]))
                 {
                     descEncuesta = arrayEncuestas[i].getDescripcionEncuesta();
@@ -134,8 +123,6 @@ namespace PPAIDSIEntrega1.Clases
                 }
             }
 
-
-            //List<string> datosLlamada = null;
             for (int i = 0; i < arrayLlamadas.Count; i++)
             {
                 if (arrayLlamadas[i].getId().Equals(id))
@@ -144,8 +131,6 @@ namespace PPAIDSIEntrega1.Clases
                     arrayRespuestas = arrayLlamadas[i].getRespuestas();
                 }
             }
-            //datosLlamadaSeleccionada = arrayLlamadas[seleccionLlamada - 1].obtenerDatosLlamada();
-            //List<int> arrayIdsRP = arrayLlamadas[seleccionLlamada - 1].obtenerIdsRp();
             DataGridViewRow fila = new DataGridViewRow();
 
             DataGridViewTextBoxCell celdaCliente = new DataGridViewTextBoxCell();
@@ -160,13 +145,7 @@ namespace PPAIDSIEntrega1.Clases
             celdaDuracion.Value = datosLlamadaSeleccionada[2];
             fila.Cells.Add(celdaDuracion);
 
-            //DataGridViewTextBoxCell celdaRespuestas = new DataGridViewTextBoxCell();
-            //celdaRespuestas.Value = datosLlamadaSeleccionada[3];
-            //fila.Cells.Add(celdaRespuestas);
-
-            //DataGridViewTextBoxCell celdaDescPreg = new DataGridViewTextBoxCell();
-            //celdaDescPreg.Value = descPreguntas;
-            //fila.Cells.Add(celdaDescPreg);
+          
 
             DataGridViewTextBoxCell celdaDescEnc = new DataGridViewTextBoxCell();
             celdaDescEnc.Value = descEncuesta;
@@ -198,23 +177,6 @@ namespace PPAIDSIEntrega1.Clases
 
         }
 
-        
-        //public void configurarManejadorClick(Button boton)
-        //{
-        //    boton.Click += ConsultarEncuesta;
-        //}
-
-        //public void ConsultarEncuesta(object sender, EventArgs e)
-        //{
-        //    FechaInicio = PantallaAsociada.getDateTimeInicio();
-        //    FechaFin = PantallaAsociada.getDateTimeFin();
-        //    MessageBox.Show("Hola" + FechaFin.ToString());
-        //}
-
-        //public void tomarPeriodo()
-        //{
-
-        //}
         
     }
 

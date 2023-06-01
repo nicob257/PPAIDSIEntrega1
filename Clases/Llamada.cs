@@ -59,23 +59,6 @@ namespace PPAIDSIEntrega1.Clases
         public List<string> obtenerDatosLlamada()
         {
             List<String> textos = new List<string>();
-            // textos.AddRange(new string[] { DescripcionOperador, DetalleOpcionRequerida, Duracion, EncuestaEnviada.ToString(),
-            //    ObservacionAuditor, ClienteAsociado.obtenerNombreCliente() });
-            // ANTES
-            // 0 = DescripcionOperador
-            // 1 = DetalleOpcionRequerida
-            // 2 = Duracion
-            // 3 = EncuestaEnviada.ToString();
-            // 4 = ObservacionAuditor
-            // 5 = ClienteAsociado.obtenerNombreCliente
-            // 6 = ClienteAsociado.obtenerNombreCliente()
-
-
-            // AHORA
-            // 0 = Nombre Cliente
-            // 1 = Estado Actual
-            // 2 = Duracion
-            // 3 = Respuestas
             textos.Add(ClienteAsociado.obtenerNombreCliente());
             for (int i = 0; i < CambiosEst.Count; i++)
             {
@@ -85,28 +68,7 @@ namespace PPAIDSIEntrega1.Clases
                 }
             }
             textos.Add(Duracion);
-            //textos.Add(getRespuestas());
             return textos;
-
-
-
-
-
-
-            //string texto = "";
-            //texto = "Descripción de operador: " + DescripcionOperador + " | Detalle Opcion requerida: "
-            //    + DetalleOpcionRequerida + " | Duración: " + Duracion + " | Encuesta enviada: " +
-            //    EncuestaEnviada.ToString() + " | Observación de auditor: " + ObservacionAuditor +
-            //    " Nombre del cliente: " + ClienteAsociado.obtenerNombreCliente();
-
-            //private string DescripcionOperador;
-            //private string DetalleOpcionRequerida;
-            //private string Duracion;
-            //private bool EncuestaEnviada;
-            //private string ObservacionAuditor;
-            //private Cliente ClienteAsociado;
-            //private List<CambioEstado> CambiosEst;
-            //private List<RespuestaDeCliente> RespuestasCliente;
 
         }
         public List<string> getRespuestas()

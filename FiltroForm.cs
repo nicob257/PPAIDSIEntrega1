@@ -23,7 +23,6 @@ namespace PPAIDSIEntrega1
         {
             InitializeComponent();
             gestor = new GestorConsultarEncuesta(this);
-            //gestor.configurarManejadorClick(btnBuscarEncuestas);
             opcionConsultarEncuesta();
 
         }
@@ -41,9 +40,6 @@ namespace PPAIDSIEntrega1
 
         public void btnBuscarEncuestas_Click(object sender, EventArgs e)
         {
-            //FormSeleccionLlamada ventanaLlamadas = new FormSeleccionLlamada(dateTimeInicio.Value, dateTimeFin.Value);
-            //ventanaLlamadas.Show();
-            //this.Hide();
             fechaDesde = tomarFechaDesde();
             fechaHasta = tomarFechaHasta();
             
@@ -72,41 +68,15 @@ namespace PPAIDSIEntrega1
 
         public void pedirSeleccionLlamada(List<int> arrayIdLlamadas)
         {
-            //MessageBox.Show(arrayIdLlamadas.Count.ToString());
-            //int posY = 17;
-            //int separacionY = 25;
             cmbSelLamada.Items.Clear();
             for (int i = 0; i < arrayIdLlamadas.Count; i++)
             {
-
-               
                 cmbSelLamada.Items.Add(arrayIdLlamadas[i].ToString());
-                
-                //RadioButton radBtn = new RadioButton();
-                //radBtn.Text = "Llamada " + arrayIdLlamadas[i].ToString();
-                //radBtn.Name = arrayIdLlamadas[i].ToString();
-                //radBtn.Left = 8;
-                //radBtn.Top = posY;
-                //panelSelLlamada.Controls.Add(radBtn);
-                //posY += separacionY;
-                //radBtn.CheckedChanged += RadBtn_CheckedChanged;
             }
             label4.Visible = true;
             cmbSelLamada.Visible = true;
         }
 
-
-        //public void RadBtn_CheckedChanged(object sender, EventArgs e)
-        //{
-            
-        //    RadioButton radioButton = (RadioButton)sender;
-        //    if (radioButton.Checked)
-        //    {
-        //        seleccionLlamada = int.Parse(radioButton.Name);
-        //        tomarSeleccionLlamada(seleccionLlamada);
-        //    }
-            
-        //}
 
         public void tomarSeleccionLlamada(int id)
         {
@@ -154,71 +124,5 @@ namespace PPAIDSIEntrega1
         {
             this.Close();
         }
-
-
-
-        // 0 = DescripcionOperador
-        // 1 = DetalleOpcionRequerida
-        // 2 = Duracion
-        // 3 = EncuestaEnviada.ToString();
-        // 4 = ObservacionAuditor
-        // 5 = ClienteAsociado.obtenerNombreCliente
-        // 6 = ClienteAsociado.obtenerNombreCliente()
-
-        //if (radioButton.Checked)
-        //{
-        //    grdLlamada.Rows.Clear();
-        //    int idLlamada = int.Parse(radioButton.Name);
-        //    //MessageBox.Show(idLlamada.ToString());
-        //    List<string> datosLlamada = null;
-        //    datosLlamada = arrayLlamadas[idLlamada - 1].obtenerDatosLlamada();
-        //    List<int> arrayIdsRP = arrayLlamadas[idLlamada - 1].obtenerIdsRp();
-        //    DataGridViewRow fila = new DataGridViewRow();
-
-        //    DataGridViewTextBoxCell celdaCliente = new DataGridViewTextBoxCell();
-        //    celdaCliente.Value = datosLlamada[5];
-        //    fila.Cells.Add(celdaCliente);
-
-        //    DataGridViewTextBoxCell celdaEstadoActual = new DataGridViewTextBoxCell();
-        //    celdaEstadoActual.Value = datosLlamada[6];
-        //    fila.Cells.Add(celdaEstadoActual);
-
-        //    DataGridViewTextBoxCell celdaDuracion = new DataGridViewTextBoxCell();
-        //    celdaDuracion.Value = datosLlamada[2];
-        //    fila.Cells.Add(celdaDuracion);
-
-        //    DataGridViewTextBoxCell celdaRespuestas = new DataGridViewTextBoxCell();
-        //    celdaRespuestas.Value = datosLlamada[7];
-        //    fila.Cells.Add(celdaRespuestas);
-
-
-        //    string descEncuesta = "";
-        //    string descPreguntas = "";
-        //    for (int i = 0; i < arrayEncuestas.Count; i++)
-        //    {
-        //        //MessageBox.Show(arrayLlamadas[idLlamada - 1].obtenerIdsRp().ToString());
-        //        //MessageBox.Show(arrayIdsRP[0].ToString());
-        //        if (arrayEncuestas[i].esEncuestaDeCliente(arrayIdsRP[0]))
-        //        {
-        //            descEncuesta = arrayEncuestas[i].getDescripcionEncuesta();
-        //            descPreguntas = arrayEncuestas[i].obtenerPreguntas();
-        //        }
-        //    }
-        //    DataGridViewTextBoxCell celdaDescPreg = new DataGridViewTextBoxCell();
-        //    celdaDescPreg.Value = descPreguntas;
-        //    fila.Cells.Add(celdaDescPreg);
-
-        //    DataGridViewTextBoxCell celdaDescEnc = new DataGridViewTextBoxCell();
-        //    celdaDescEnc.Value = descEncuesta;
-        //    fila.Cells.Add(celdaDescEnc);
-
-        //    grdLlamada.Rows.Add(fila);
-
-        //}
-
-
-
-
-
     }
 }
