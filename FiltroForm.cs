@@ -77,12 +77,33 @@ namespace PPAIDSIEntrega1
             cmbSelLamada.Visible = true;
         }
 
-
+        private void cmbSelLamada_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            seleccionLlamada = int.Parse(cmbSelLamada.SelectedItem.ToString());
+            tomarSeleccionLlamada(seleccionLlamada);
+            grdPregYRes.Visible = true;
+            grdLlamada2.Visible = true;
+        }
+        
         public void tomarSeleccionLlamada(int id)
         {
             gestor.tomarSeleccionLlamada(id);
         }
 
+
+        public void pedirFormaVisualizacion()
+        {
+            this.btnCsv.Visible = true;
+            this.btnImprimir.Visible = true;
+        }
+        private void btnCsv_Click(object sender, EventArgs e)
+        {
+            tomarFormaVisualizacion("CSV");     
+        }
+        private void tomarFormaVisualizacion(string formaVisualizacion)
+        {
+            gestor.tomarFormaVisualizacion(formaVisualizacion);
+        }
 
         public void agregarFilaGrdA(DataGridViewRow fila)
         {
@@ -104,23 +125,12 @@ namespace PPAIDSIEntrega1
         {
             grdPregYRes.Rows.Clear();
         }
-        private void btnCsv_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("CSV Generado con éxito!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Archivo Generado con éxito!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            tomarFormaVisualizacion("Imprimir");
         }
 
-        private void cmbSelLamada_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            seleccionLlamada = int.Parse(cmbSelLamada.SelectedItem.ToString());
-            tomarSeleccionLlamada(seleccionLlamada);
-            grdPregYRes.Visible = true;
-            grdLlamada2.Visible = true;
-        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {

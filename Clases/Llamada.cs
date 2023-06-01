@@ -56,7 +56,7 @@ namespace PPAIDSIEntrega1.Clases
             return (fecha >= filtroInicio && fecha <= filtroFin);   
         }
 
-        public List<string> obtenerDatosLlamada()
+        public List<string> obtenerDatosLlamada(GestorConsultarEncuesta gestor)
         {
             List<String> textos = new List<string>();
             textos.Add(ClienteAsociado.obtenerNombreCliente());
@@ -68,12 +68,12 @@ namespace PPAIDSIEntrega1.Clases
                 }
             }
             textos.Add(Duracion);
+            gestor.setArrayRespuestas(getRespuestas());
             return textos;
 
         }
         public List<string> getRespuestas()
         {
-            //string texto = "";
             List<String> textos = new List<string>();
             for (int i = 0; i < this.RespuestasCliente.Count; i++)
             {

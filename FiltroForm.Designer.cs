@@ -35,16 +35,16 @@
             this.dateTimeInicio = new System.Windows.Forms.DateTimePicker();
             this.dateTimeFin = new System.Windows.Forms.DateTimePicker();
             this.grdLlamada2 = new System.Windows.Forms.DataGridView();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DuracionLlamada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripcionEncuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCsv = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.cmbSelLamada = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.grdPregYRes = new System.Windows.Forms.DataGridView();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DuracionLlamada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescripcionEncuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rtaSelec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descPreg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdLlamada2)).BeginInit();
@@ -129,6 +129,38 @@
             this.grdLlamada2.TabIndex = 9;
             this.grdLlamada2.Visible = false;
             // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.MinimumWidth = 6;
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            this.Cliente.Width = 125;
+            // 
+            // EstadoActual
+            // 
+            this.EstadoActual.HeaderText = "Estado Actual";
+            this.EstadoActual.MinimumWidth = 6;
+            this.EstadoActual.Name = "EstadoActual";
+            this.EstadoActual.ReadOnly = true;
+            this.EstadoActual.Width = 125;
+            // 
+            // DuracionLlamada
+            // 
+            this.DuracionLlamada.HeaderText = "Duracion de Llamada";
+            this.DuracionLlamada.MinimumWidth = 6;
+            this.DuracionLlamada.Name = "DuracionLlamada";
+            this.DuracionLlamada.ReadOnly = true;
+            this.DuracionLlamada.Width = 125;
+            // 
+            // DescripcionEncuesta
+            // 
+            this.DescripcionEncuesta.HeaderText = "Descripcion Encuesta";
+            this.DescripcionEncuesta.MinimumWidth = 6;
+            this.DescripcionEncuesta.Name = "DescripcionEncuesta";
+            this.DescripcionEncuesta.ReadOnly = true;
+            this.DescripcionEncuesta.Width = 200;
+            // 
             // btnCsv
             // 
             this.btnCsv.Location = new System.Drawing.Point(353, 630);
@@ -137,6 +169,7 @@
             this.btnCsv.TabIndex = 10;
             this.btnCsv.Text = "Generar CSV";
             this.btnCsv.UseVisualStyleBackColor = true;
+            this.btnCsv.Visible = false;
             this.btnCsv.Click += new System.EventHandler(this.btnCsv_Click);
             // 
             // btnImprimir
@@ -147,6 +180,7 @@
             this.btnImprimir.TabIndex = 11;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Visible = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // cmbSelLamada
@@ -199,38 +233,6 @@
             this.grdPregYRes.TabIndex = 15;
             this.grdPregYRes.Visible = false;
             // 
-            // Cliente
-            // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.MinimumWidth = 6;
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
-            this.Cliente.Width = 125;
-            // 
-            // EstadoActual
-            // 
-            this.EstadoActual.HeaderText = "Estado Actual";
-            this.EstadoActual.MinimumWidth = 6;
-            this.EstadoActual.Name = "EstadoActual";
-            this.EstadoActual.ReadOnly = true;
-            this.EstadoActual.Width = 125;
-            // 
-            // DuracionLlamada
-            // 
-            this.DuracionLlamada.HeaderText = "Duracion de Llamada";
-            this.DuracionLlamada.MinimumWidth = 6;
-            this.DuracionLlamada.Name = "DuracionLlamada";
-            this.DuracionLlamada.ReadOnly = true;
-            this.DuracionLlamada.Width = 125;
-            // 
-            // DescripcionEncuesta
-            // 
-            this.DescripcionEncuesta.HeaderText = "Descripcion Encuesta";
-            this.DescripcionEncuesta.MinimumWidth = 6;
-            this.DescripcionEncuesta.Name = "DescripcionEncuesta";
-            this.DescripcionEncuesta.ReadOnly = true;
-            this.DescripcionEncuesta.Width = 200;
-            // 
             // rtaSelec
             // 
             this.rtaSelec.HeaderText = "Respuesta Seleccionada";
@@ -266,6 +268,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FiltroForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FiltroForm";
             this.Load += new System.EventHandler(this.FiltroForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdLlamada2)).EndInit();

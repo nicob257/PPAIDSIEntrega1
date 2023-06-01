@@ -104,8 +104,9 @@ namespace PPAIDSIEntrega1.Clases
             {
                 if (arrayLlamadas[i].getid.Equals(id))
                 {
-                    arrayLlamadas[i].obtenerDatosLlamada();
+                    datosLlamadaSeleccionada = arrayLlamadas[i].obtenerDatosLlamada(this);
                     arrayIdsRP = arrayLlamadas[i].obtenerIdsRp();
+                    //arrayRespuestas = arrayLlamadas[i].getRespuestas();
                 }
 
             }
@@ -119,14 +120,6 @@ namespace PPAIDSIEntrega1.Clases
                 }
             }
 
-            for (int i = 0; i < arrayLlamadas.Count; i++)
-            {
-                if (arrayLlamadas[i].getId().Equals(id))
-                {
-                    datosLlamadaSeleccionada = arrayLlamadas[i].obtenerDatosLlamada();
-                    arrayRespuestas = arrayLlamadas[i].getRespuestas();
-                }
-            }
             DataGridViewRow fila = new DataGridViewRow();
 
             DataGridViewTextBoxCell celdaCliente = new DataGridViewTextBoxCell();
@@ -169,11 +162,43 @@ namespace PPAIDSIEntrega1.Clases
 
             }
 
-            
+            PantallaAsociada.pedirFormaVisualizacion();
 
         }
 
-        
+        public void setArrayRespuestas(List<String> lista)
+        {
+            arrayRespuestas = lista;
+        }
+
+        public void tomarFormaVisualizacion(string formaVisualizacion)
+        {
+            if (formaVisualizacion.Equals("CSV"))
+            {
+            this.generarCSV();
+            }
+            else
+            {
+                this.imprimir();
+            }
+        }
+
+        public void generarCSV()
+        {
+            if (MessageBox.Show("CSV Generado con éxito!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK);
+            {
+                PantallaAsociada.Close();
+            }
+
+        }
+
+        public void imprimir()
+        {
+            if (MessageBox.Show("Archivo Generado con éxito!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK) ;
+            {
+                PantallaAsociada.Close();
+            }
+        }
     }
 
 }
