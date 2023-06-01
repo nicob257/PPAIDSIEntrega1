@@ -62,12 +62,15 @@ namespace PPAIDSIEntrega1.Clases
             textos.Add(ClienteAsociado.obtenerNombreCliente());
             for (int i = 0; i < CambiosEst.Count; i++)
             {
+                //nuevo
+                //textos.Add(i.ToString()); //linea de mas
                 if (CambiosEst[i].esActual())
                 {
                     textos.Add(CambiosEst[i].obtenerEstado());
                 }
             }
             textos.Add(Duracion);
+            
             gestor.setArrayRespuestas(getRespuestas());
             return textos;
 

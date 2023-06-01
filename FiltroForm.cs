@@ -40,6 +40,9 @@ namespace PPAIDSIEntrega1
 
         public void btnBuscarEncuestas_Click(object sender, EventArgs e)
         {
+            grdPregYRes.Visible = false;
+            limpiarCamposGrdA();
+
             fechaDesde = tomarFechaDesde();
             fechaHasta = tomarFechaHasta();
             
@@ -68,17 +71,27 @@ namespace PPAIDSIEntrega1
 
         public void pedirSeleccionLlamada(List<int> arrayIdLlamadas)
         {
+            //Aca cargar a la grilla no al cmd
+
             cmbSelLamada.Items.Clear();
+            
             for (int i = 0; i < arrayIdLlamadas.Count; i++)
             {
                 cmbSelLamada.Items.Add(arrayIdLlamadas[i].ToString());
+                tomarSeleccionLlamada(arrayIdLlamadas[i]);
             }
+            /*for (int i = 0; i < arrayIdLlamadas.Count; i++)
+            {
+                tomarSeleccionLlamada(arrayIdLlamadas[i]);
+            }*/
             label4.Visible = true;
-            cmbSelLamada.Visible = true;
+            //cmbSelLamada.Visible = true;
+
         }
 
         private void cmbSelLamada_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            //es el otro metodo de datagridItemChange
             seleccionLlamada = int.Parse(cmbSelLamada.SelectedItem.ToString());
             tomarSeleccionLlamada(seleccionLlamada);
             grdPregYRes.Visible = true;
@@ -107,7 +120,7 @@ namespace PPAIDSIEntrega1
 
         public void agregarFilaGrdA(DataGridViewRow fila)
         {
-            grdLlamada2.Rows.Clear();
+            //grdLlamada2.Rows.Clear();
             grdLlamada2.Rows.Add(fila);
         }
 
@@ -135,6 +148,19 @@ namespace PPAIDSIEntrega1
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        //nuevo
+        
+
+        private void grdLlamada2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            grdPregYRes.Visible = true;
+            int indice = e.RowIndex;
+            DataGridViewRow filaSeleccionada = grdLlamada2.Rows[indice];
+            seleccionLlamada = int.Parse(filaSeleccionada.Cells["Id"].Value.ToString());
+            
+            tomarSeleccionLlamada(seleccionLlamada);
         }
     }
 }

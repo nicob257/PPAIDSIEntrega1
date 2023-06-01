@@ -21,8 +21,9 @@ namespace PPAIDSIEntrega1.Clases
         private List<string> descPreguntas;
         private List<Encuesta> arrayEncuestas;
         private List<String> arrayRespuestas;
-        
 
+        private bool llamadasCargadas;
+        //private List<Llamada> arrayIdLlamadas2;
 
         public GestorConsultarEncuesta(FiltroForm pantalla)
         {
@@ -70,6 +71,7 @@ namespace PPAIDSIEntrega1.Clases
 
         public void tomarPeriodo(DateTime fechaDesde, DateTime fechaHasta)
         {
+            llamadasCargadas = false;
             fechaInicio = fechaDesde;
             fechaFin = fechaHasta;
             buscarLlamadasConEncuestasRespondidas();
@@ -83,11 +85,17 @@ namespace PPAIDSIEntrega1.Clases
                 if (arrayLlamadas[i].esDePeriodo(fechaInicio, fechaFin) && arrayLlamadas[i].tieneEncuestaRespondida())
                 {
                     arrayIdLlamadas.Add(arrayLlamadas[i].getid);
+                    //nuevo
+                    //arrayIdLlamadas2.Add(arrayIdLlamadas[i]);
                     
+                    //
                 }
                 
             }
+
             PantallaAsociada.pedirSeleccionLlamada(arrayIdLlamadas);
+            //nuevo
+            llamadasCargadas = true;
         }
 
 
@@ -105,6 +113,7 @@ namespace PPAIDSIEntrega1.Clases
                 if (arrayLlamadas[i].getid.Equals(id))
                 {
                     datosLlamadaSeleccionada = arrayLlamadas[i].obtenerDatosLlamada(this);
+                    datosLlamadaSeleccionada.Add(id.ToString());
                     arrayIdsRP = arrayLlamadas[i].obtenerIdsRp();
                     //arrayRespuestas = arrayLlamadas[i].getRespuestas();
                 }
@@ -119,29 +128,40 @@ namespace PPAIDSIEntrega1.Clases
                     descPreguntas = arrayEncuestas[i].obtenerPreguntas();
                 }
             }
+            if (llamadasCargadas== false)
+            {
+                DataGridViewRow fila = new DataGridViewRow();
 
-            DataGridViewRow fila = new DataGridViewRow();
+                DataGridViewTextBoxCell celdaId = new DataGridViewTextBoxCell();
+                celdaId.Value = datosLlamadaSeleccionada[3];
+                fila.Cells.Add(celdaId);
 
-            DataGridViewTextBoxCell celdaCliente = new DataGridViewTextBoxCell();
-            celdaCliente.Value = datosLlamadaSeleccionada[0];
-            fila.Cells.Add(celdaCliente);
+                DataGridViewTextBoxCell celdaCliente = new DataGridViewTextBoxCell();
+                celdaCliente.Value = datosLlamadaSeleccionada[0];
+                fila.Cells.Add(celdaCliente);
 
-            DataGridViewTextBoxCell celdaEstadoActual = new DataGridViewTextBoxCell();
-            celdaEstadoActual.Value = datosLlamadaSeleccionada[1];
-            fila.Cells.Add(celdaEstadoActual);
+                DataGridViewTextBoxCell celdaEstadoActual = new DataGridViewTextBoxCell();
+                celdaEstadoActual.Value = datosLlamadaSeleccionada[1];
+                fila.Cells.Add(celdaEstadoActual);
 
-            DataGridViewTextBoxCell celdaDuracion = new DataGridViewTextBoxCell();
-            celdaDuracion.Value = datosLlamadaSeleccionada[2];
-            fila.Cells.Add(celdaDuracion);
+                DataGridViewTextBoxCell celdaDuracion = new DataGridViewTextBoxCell();
+                celdaDuracion.Value = datosLlamadaSeleccionada[2];
+                fila.Cells.Add(celdaDuracion);
+
+                DataGridViewTextBoxCell celdaDescEnc = new DataGridViewTextBoxCell();
+                celdaDescEnc.Value = descEncuesta;
+                fila.Cells.Add(celdaDescEnc);
+
+                PantallaAsociada.agregarFilaGrdA(fila);
+            }
+            
 
           
 
-            DataGridViewTextBoxCell celdaDescEnc = new DataGridViewTextBoxCell();
-            celdaDescEnc.Value = descEncuesta;
-            fila.Cells.Add(celdaDescEnc);
+            
 
-            PantallaAsociada.limpiarCamposGrdA();
-            PantallaAsociada.agregarFilaGrdA(fila);
+            //PantallaAsociada.limpiarCamposGrdA();
+            
             
 
 
@@ -199,6 +219,81 @@ namespace PPAIDSIEntrega1.Clases
                 PantallaAsociada.Close();
             }
         }
+
+        //nuevo
+        public void mostrarPregyResp(int id)
+        {
+            seleccionLlamada = id;
+            /*for (int i = 0; i < arrayLlamadas.Count; i++)
+            {
+                if (arrayLlamadas[i].getid.Equals(id))
+                {
+                    datosLlamadaSeleccionada = arrayLlamadas[i].obtenerDatosLlamada(this);
+                    datosLlamadaSeleccionada.Add(id.ToString());
+                    arrayIdsRP = arrayLlamadas[i].obtenerIdsRp();
+                    //arrayRespuestas = arrayLlamadas[i].getRespuestas();
+                }
+
+            }
+
+            for (int i = 0; i < arrayEncuestas.Count; i++)
+            {
+                if (arrayEncuestas[i].esEncuestaDeCliente(arrayIdsRP[0]))
+                {
+                    descEncuesta = arrayEncuestas[i].getDescripcionEncuesta();
+                    descPreguntas = arrayEncuestas[i].obtenerPreguntas();
+                }
+            }
+
+            DataGridViewRow fila = new DataGridViewRow();
+
+            DataGridViewTextBoxCell celdaId = new DataGridViewTextBoxCell();
+            celdaId.Value = datosLlamadaSeleccionada[3];
+            fila.Cells.Add(celdaId);
+
+            DataGridViewTextBoxCell celdaCliente = new DataGridViewTextBoxCell();
+            celdaCliente.Value = datosLlamadaSeleccionada[0];
+            fila.Cells.Add(celdaCliente);
+
+            DataGridViewTextBoxCell celdaEstadoActual = new DataGridViewTextBoxCell();
+            celdaEstadoActual.Value = datosLlamadaSeleccionada[1];
+            fila.Cells.Add(celdaEstadoActual);
+
+            DataGridViewTextBoxCell celdaDuracion = new DataGridViewTextBoxCell();
+            celdaDuracion.Value = datosLlamadaSeleccionada[2];
+            fila.Cells.Add(celdaDuracion);
+
+
+
+            DataGridViewTextBoxCell celdaDescEnc = new DataGridViewTextBoxCell();
+            celdaDescEnc.Value = descEncuesta;
+            fila.Cells.Add(celdaDescEnc);
+
+            */
+
+
+
+
+            PantallaAsociada.limpiarCamposGrdB();
+            for (int i = 0; i < arrayRespuestas.Count; i++)
+            {
+                DataGridViewRow filaPYR = new DataGridViewRow();
+                DataGridViewTextBoxCell celdaRes = new DataGridViewTextBoxCell();
+                celdaRes.Value = arrayRespuestas[i];
+                filaPYR.Cells.Add(celdaRes);
+
+                DataGridViewTextBoxCell celdaPreg = new DataGridViewTextBoxCell();
+                celdaPreg.Value = descPreguntas[i];
+                filaPYR.Cells.Add(celdaPreg);
+
+                PantallaAsociada.agregarFilaGrdB(filaPYR);
+
+            }
+
+            PantallaAsociada.pedirFormaVisualizacion();
+
+        }
+
     }
 
 }
