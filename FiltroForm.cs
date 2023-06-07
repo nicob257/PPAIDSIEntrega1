@@ -106,13 +106,11 @@ namespace PPAIDSIEntrega1
 
         public void pedirFormaVisualizacion()
         {
-            this.btnCsv.Visible = true;
-            this.btnImprimir.Visible = true;
+            btnConfirmar.Visible = true;
+            //this.btnCsv.Visible = true;
+            //this.btnImprimir.Visible = true;
         }
-        private void btnCsv_Click(object sender, EventArgs e)
-        {
-            tomarFormaVisualizacion("CSV");     
-        }
+        
         private void tomarFormaVisualizacion(string formaVisualizacion)
         {
             gestor.tomarFormaVisualizacion(formaVisualizacion);
@@ -139,28 +137,58 @@ namespace PPAIDSIEntrega1
             grdPregYRes.Rows.Clear();
         }
 
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            tomarFormaVisualizacion("Imprimir");
-        }
+        
 
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult resul = MessageBox.Show("¿Esta seguro que desea cancelar?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resul == DialogResult.Yes)
+            {
+                this.Close();
+                
+            }
+            
+            
         }
         //nuevo
         
 
         private void grdLlamada2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            gboxSelecOpGenerar.Visible = true;
             grdPregYRes.Visible = true;
             int indice = e.RowIndex;
             DataGridViewRow filaSeleccionada = grdLlamada2.Rows[indice];
             seleccionLlamada = int.Parse(filaSeleccionada.Cells["Id"].Value.ToString());
             
             tomarSeleccionLlamada(seleccionLlamada);
+        }
+
+        private void checkGenerarCSV_CheckedChanged(object sender, EventArgs e)
+        {
+            checkImprimir.Checked = false; 
+        }
+
+        private void checkImprimir_CheckedChanged(object sender, EventArgs e)
+        {
+            checkGenerarCSV.Checked = false; 
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            if (checkImprimir.Checked==true)
+            {
+                tomarFormaVisualizacion("Imprimir");
+            }
+            else if (checkGenerarCSV.Checked == true)
+            {
+                tomarFormaVisualizacion("CSV");
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una forma de generacion.");
+            }
         }
     }
 }
