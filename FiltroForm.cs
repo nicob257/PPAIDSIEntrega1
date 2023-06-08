@@ -193,11 +193,14 @@ namespace PPAIDSIEntrega1
         {
             gboxSelecOpGenerar.Visible = true;
             grdPregYRes.Visible = true;
-            int indice = e.RowIndex;
-            DataGridViewRow filaSeleccionada = grdLlamada2.Rows[indice];
-            seleccionLlamada = int.Parse(filaSeleccionada.Cells["Id"].Value.ToString());
-            
-            tomarSeleccionLlamada(seleccionLlamada);
+            int indice = e.RowIndex;            
+            if (e.RowIndex > -1)
+            {
+                DataGridViewRow filaSeleccionada = grdLlamada2.Rows[indice];
+                seleccionLlamada = int.Parse(filaSeleccionada.Cells["Id"].Value.ToString());
+
+                tomarSeleccionLlamada(seleccionLlamada);
+            }
         }
 
         private void checkGenerarCSV_CheckedChanged(object sender, EventArgs e)
