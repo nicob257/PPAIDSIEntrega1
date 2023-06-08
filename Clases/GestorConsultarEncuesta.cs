@@ -199,6 +199,10 @@ namespace PPAIDSIEntrega1.Clases
 
                 PantallaAsociada.agregarFilaGrdA(fila);
             }
+            else
+            {
+                PantallaAsociada.pedirFormaVisualizacion();
+            }
             
 
           
@@ -227,7 +231,7 @@ namespace PPAIDSIEntrega1.Clases
 
             }
 
-            PantallaAsociada.pedirFormaVisualizacion();
+            
 
         }
 
