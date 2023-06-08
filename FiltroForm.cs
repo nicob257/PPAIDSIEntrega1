@@ -73,11 +73,11 @@ namespace PPAIDSIEntrega1
         {
             //Aca cargar a la grilla no al cmd
 
-            cmbSelLamada.Items.Clear();
+            //cmbSelLamada.Items.Clear();
             
             for (int i = 0; i < arrayIdLlamadas.Count; i++)
             {
-                cmbSelLamada.Items.Add(arrayIdLlamadas[i].ToString());
+                //cmbSelLamada.Items.Add(arrayIdLlamadas[i].ToString());
                 tomarSeleccionLlamada(arrayIdLlamadas[i]);
             }
             /*for (int i = 0; i < arrayIdLlamadas.Count; i++)
@@ -89,14 +89,14 @@ namespace PPAIDSIEntrega1
 
         }
 
-        private void cmbSelLamada_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            //es el otro metodo de datagridItemChange
-            seleccionLlamada = int.Parse(cmbSelLamada.SelectedItem.ToString());
-            tomarSeleccionLlamada(seleccionLlamada);
-            grdPregYRes.Visible = true;
-            grdLlamada2.Visible = true;
-        }
+        //private void cmbSelLamada_SelectionChangeCommitted(object sender, EventArgs e)
+        //{
+        //    //es el otro metodo de datagridItemChange
+        //    //seleccionLlamada = int.Parse(cmbSelLamada.SelectedItem.ToString());
+        //    tomarSeleccionLlamada(seleccionLlamada);
+        //    grdPregYRes.Visible = true;
+        //    grdLlamada2.Visible = true;
+        //}
         
         public void tomarSeleccionLlamada(int id)
         {
