@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -113,6 +114,40 @@ namespace PPAIDSIEntrega1
         
         private void tomarFormaVisualizacion(string formaVisualizacion)
         {
+            /*if (formaVisualizacion == "CSV")
+            {
+                string filePath = "C:/Users/NombreUsuario/Desktop/archivo.csv";
+
+                // Abrir el archivo en modo escritura
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    // Escribir encabezados de las columnas
+                    for (int i = 0; i < grdLlamada2.Columns.Count; i++)
+                    {
+                        writer.Write(grdLlamada2.Columns[i].HeaderText);
+                        if (i < grdLlamada2.Columns.Count - 1)
+                        {
+                            writer.Write(",");
+                        }
+                    }
+                    writer.WriteLine();
+
+                    // Escribir filas de datos
+                    for (int i = 0; i < grdLlamada2.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < grdLlamada2.Columns.Count; j++)
+                        {
+                            writer.Write(grdLlamada2.Rows[i].Cells[j].Value);
+                            if (j < grdLlamada2.Columns.Count - 1)
+                            {
+                                writer.Write(",");
+                            }
+                        }
+                        writer.WriteLine();
+                    }
+                }
+            }*/
+            
             gestor.tomarFormaVisualizacion(formaVisualizacion);
         }
 

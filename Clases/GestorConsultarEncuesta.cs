@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,10 +42,31 @@ namespace PPAIDSIEntrega1.Clases
         {
             Llamada llam1 = new Llamada(4, "", "", "6m20s", true, "", "39924511", "Matias", "3513221641");
             Llamada llam2 = new Llamada(7, "", "", "12m46s", true, "", "32115644", "Facundo", "3516428615");
+
+            Llamada llam3 = new Llamada(8, "", "", "7m 10s", true, "", "3340378", "Silvina Maciel", "2974774567");
+            Llamada llam4 = new Llamada(9, "", "", "10m 26s", true, "", "30155168", "Gonzalo Alvarado", "115178988");
+            Llamada llam5 = new Llamada(10, "", "", "1m 20s", true, "", "35223112", "Melina Lobo", "2975774567");
+            Llamada llam6 = new Llamada(11, "", "", "2m 33s", true, "", "20075555", "Carolina Suarez", "2975989334");
+            Llamada llam7 = new Llamada(12, "", "", "5m 07s", true, "", "21889565", "Lucas Rodriguez", "2974156889");
+
+
+
             CambioEstado ceLlam2 = new CambioEstado("finalizado");
             llam2.actualizarEstado(ceLlam2);
             CambioEstado ceLlam1 = new CambioEstado("finalizado");
             llam1.actualizarEstado(ceLlam1);
+
+            CambioEstado ceLlam3 = new CambioEstado("finalizado");
+            llam3.actualizarEstado(ceLlam3);
+            CambioEstado ceLlam4 = new CambioEstado("finalizado");
+            llam4.actualizarEstado(ceLlam4);
+            CambioEstado ceLlam5 = new CambioEstado("finalizado");
+            llam5.actualizarEstado(ceLlam5);
+            CambioEstado ceLlam6 = new CambioEstado("finalizado");
+            llam6.actualizarEstado(ceLlam6);
+            CambioEstado ceLlam7 = new CambioEstado("finalizado");
+            llam7.actualizarEstado(ceLlam7);
+
             Encuesta enc1 = new Encuesta("Atencion al cliente", "25/8/2025");
             Pregunta preg1 = new Pregunta("¿Te sentiste cómodo con la atención brindada?");
             RespuestaPosible rp1 = new RespuestaPosible("Si", "Si", 1);
@@ -63,10 +85,33 @@ namespace PPAIDSIEntrega1.Clases
             preg1.agregarRp(rp1);
             preg1.agregarRp(rp2);
             enc1.agregarPregunta(preg1);
+
+            llam3.agregarRc(rdc2);
+            preg2.agregarRp(rp3);
+
+            llam4.agregarRc(rdc1);
+            preg1.agregarRp(rp2);
+
+            llam5.agregarRc(rdc2);
+            preg2.agregarRp(rp1);
+
+            llam6.agregarRc(rdc2);
+            preg1.agregarRp(rp4);
+
+            llam7.agregarRc(rdc1);
+            preg2.agregarRp(rp4);
+
             arrayEncuestas.Add(enc1);
             arrayLlamadas.Add(llam1);
             arrayLlamadas.Add(llam2);
+            arrayLlamadas.Add(llam3);
+            arrayLlamadas.Add(llam4);
+            arrayLlamadas.Add(llam5);
+            arrayLlamadas.Add(llam6);
+            arrayLlamadas.Add(llam7);
             PantallaAsociada.pedirSeleccionFechaPeriodo();
+
+
         }
 
         public void tomarPeriodo(DateTime fechaDesde, DateTime fechaHasta)
@@ -205,6 +250,7 @@ namespace PPAIDSIEntrega1.Clases
 
         public void generarCSV()
         {
+            
             if (MessageBox.Show("CSV Generado con éxito!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK);
             {
                 PantallaAsociada.Close();
