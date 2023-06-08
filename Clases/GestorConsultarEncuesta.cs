@@ -40,9 +40,8 @@ namespace PPAIDSIEntrega1.Clases
 
         public void consultarEncuesta()
         {
-            Llamada llam1 = new Llamada(4, "", "", "6m20s", true, "", "39924511", "Matias", "3513221641");
-            Llamada llam2 = new Llamada(7, "", "", "12m46s", true, "", "32115644", "Facundo", "3516428615");
-
+            Llamada llam1 = new Llamada(4, "", "", "6m 20s", true, "", "39924511", "Matias Gonzalez", "3513221641");
+            Llamada llam2 = new Llamada(7, "", "", "12m 46s", true, "", "32115644", "Facundo Diaz", "3516428615");
             Llamada llam3 = new Llamada(8, "", "", "7m 10s", true, "", "3340378", "Silvina Maciel", "2974774567");
             Llamada llam4 = new Llamada(9, "", "", "10m 26s", true, "", "30155168", "Gonzalo Alvarado", "115178988");
             Llamada llam5 = new Llamada(10, "", "", "1m 20s", true, "", "35223112", "Melina Lobo", "2975774567");
@@ -90,6 +89,7 @@ namespace PPAIDSIEntrega1.Clases
             preg2.agregarRp(rp3);
 
             llam4.agregarRc(rdc1);
+            llam4.agregarRc(rdc2);
             preg1.agregarRp(rp2);
 
             llam5.agregarRc(rdc2);
@@ -99,6 +99,7 @@ namespace PPAIDSIEntrega1.Clases
             preg1.agregarRp(rp4);
 
             llam7.agregarRc(rdc1);
+            llam7.agregarRc(rdc2);
             preg2.agregarRp(rp4);
 
             arrayEncuestas.Add(enc1);

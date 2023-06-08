@@ -116,36 +116,42 @@ namespace PPAIDSIEntrega1
         {
             /*if (formaVisualizacion == "CSV")
             {
-                string filePath = "C:/Users/NombreUsuario/Desktop/archivo.csv";
+                List<string> headers = grdLlamada2.Columns.Cast<DataGridViewColumn>()
+                .Select(column => column.HeaderText)
+                .ToList();
 
-                // Abrir el archivo en modo escritura
+                // Obtener los datos de la fila seleccionada
+                DataGridViewRow selectedRow = grdLlamada2.SelectedRows[0];
+                List<string> rowData = selectedRow.Cells.Cast<DataGridViewCell>()
+                    .Select(cell => cell.Value.ToString())
+                    .ToList();
+
+                string filePath = "C:/Users/NombreDeUsuario/Desktop/archivo.csv";
+
+                // Crear el archivo CSV
                 using (StreamWriter writer = new StreamWriter(filePath))
                 {
-                    // Escribir encabezados de las columnas
-                    for (int i = 0; i < grdLlamada2.Columns.Count; i++)
+                    
+                    // Escribir los encabezados de las columnas
+                    for (int i = 0; i < grdPregYRes.Columns.Count; i++)
                     {
-                        writer.Write(grdLlamada2.Columns[i].HeaderText);
-                        if (i < grdLlamada2.Columns.Count - 1)
-                        {
-                            writer.Write(",");
-                        }
+                        headers.Add(grdPregYRes.Columns[i].HeaderText);
+                       
                     }
-                    writer.WriteLine();
+                    writer.WriteLine(string.Join(",", headers));
 
-                    // Escribir filas de datos
-                    for (int i = 0; i < grdLlamada2.Rows.Count; i++)
+                    // Escribir la fila seleccionada y las respuestas
+                    for (int i = 0; i < grdPregYRes.Rows.Count; i++)
                     {
-                        for (int j = 0; j < grdLlamada2.Columns.Count; j++)
+                        List<string> row = new List<string>();
+                        for (int j = 0; j < grdPregYRes.Columns.Count; j++)
                         {
-                            writer.Write(grdLlamada2.Rows[i].Cells[j].Value);
-                            if (j < grdLlamada2.Columns.Count - 1)
-                            {
-                                writer.Write(",");
-                            }
+                            rowData.Add(grdPregYRes.Rows[i].Cells[j].Value.ToString());
                         }
-                        writer.WriteLine();
+                        writer.WriteLine(string.Join(",", rowData));
                     }
                 }
+                
             }*/
             
             gestor.tomarFormaVisualizacion(formaVisualizacion);
