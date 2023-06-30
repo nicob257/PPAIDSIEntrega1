@@ -19,6 +19,9 @@ namespace PPAIDSIEntrega1.Clases
             ListaPreguntas = new List<Pregunta>();
         }
 
+
+        // Función que recibe como parámetro un idRP y verifica si la encuesta es del cliente, recorriendo la lista de  preguntas y invocando
+        //  en cada una la función esEncuestaDeCliente con el id recibido como parámetro
         public bool esEncuestaDeCliente(int idRP)
         {
             bool respuesta = false;
@@ -32,16 +35,22 @@ namespace PPAIDSIEntrega1.Clases
             return respuesta;
         }
 
+
+        // Funcion para agregar una pregunta (recibida como parámetro) a la lista de preguntas de la encuesta
         public void agregarPregunta(Pregunta preg)
         {
             ListaPreguntas.Add(preg);
         }
 
+
+        // Función que devuelve la descripción de la encuesta
         public string getDescripcionEncuesta()
         {
             return Descripcion;
         }
 
+
+        // Función que obtiene las preguntas de la encuesta
         public List<string> obtenerPreguntas()
         {
             List<String> textos = new List<String>();

@@ -19,11 +19,14 @@ namespace PPAIDSIEntrega1.Clases
             Id = id;
         }
 
+        // Función que devuelve la descripción
         public string obtenerDatos()
         {
             return this.Descripcion;
         }
 
+
+        // Función que devuelve el Id 
         public int obtenerId()
         {
             return this.Id;

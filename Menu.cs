@@ -17,12 +17,18 @@ namespace PPAIDSIEntrega1
             InitializeComponent();
         }
 
+        // Al hacerse click en la opción "Consultar encuesta" se oculta esta pantalla y se muestra la pantalla FiltroForm
         private void consultarEncuestaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             FiltroForm pantalla = new FiltroForm();
             pantalla.Show();
             
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

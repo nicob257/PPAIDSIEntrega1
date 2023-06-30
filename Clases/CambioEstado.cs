@@ -19,26 +19,37 @@ namespace PPAIDSIEntrega1.Clases
             EstadoAsociado = new Estado(nombre);
         }
 
-        public bool esEstadoInicial()
+
+        // Esta función verifica si el estado asociado al CE es el inicial, retornando true o false
+        public bool esEstadoInicial() 
         {
             return this.EstadoAsociado.esIniciada();
         }
 
+
+        // Esta función devuelve la fecha de inicio mediante un getter
         public DateTime getFechaInicio
         {
             get => FechaHoraInicio;
         }
 
+
+        // Esta función chequea si el estado es actual, mediante el getter de la fecha de fin del CE
+        // "FinEstado", comprobando si el mismo devuelve null
         public bool esActual()
         {
             return FinEstado.Equals(null);
         }
 
+
+        // Función que devuelve el nombre del estado asociado a este CE
         public string obtenerEstado()
         {
             return this.EstadoAsociado.getNombre();
         }
 
+
+        // getter y setter de la FechaHoraFin mediante el nombre "FinEstado"
         public DateTime? FinEstado
         {
             get => FechaHoraFin;

@@ -17,10 +17,14 @@ namespace PPAIDSIEntrega1.Clases
             RP = rp; 
         }
 
+
+        // Función que devuelve los datos de la Respuesta mediante el llamado a obtenerDatos de la respuesta posible asociada
         public string obtenerDatosRta()
         {
             return this.RP.obtenerDatos();
         }
+
+        // Función que devuelve el Id de la respuesta posible asociada
         public int obtenerId()
         {
             return this.RP.obtenerId();

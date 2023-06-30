@@ -38,7 +38,7 @@ namespace PPAIDSIEntrega1
         }
 
 
-
+        // Al hacer click en el botón "Buscar encuestas", se guardan las fechas seleccionadas y el gestor toma este período
         public void btnBuscarEncuestas_Click(object sender, EventArgs e)
         {
             grdPregYRes.Visible = false;
@@ -54,6 +54,9 @@ namespace PPAIDSIEntrega1
         {
 
         }
+
+
+        // Mostramos los dateTimePickers
         public void pedirSeleccionFechaPeriodo()
         {
             dateTimeInicio.Visible = true;
@@ -70,6 +73,12 @@ namespace PPAIDSIEntrega1
             return dateTimeFin.Value;
         }
 
+
+
+
+        // Para pedir la seleccion de llamada mediante la grilla, debemos obtener los datos de la llamada, se llama al método 
+        // tomarSeleccionLlamada con este propósito, NO se está tomando la selección del cliente
+
         public void pedirSeleccionLlamada(List<int> arrayIdLlamadas)
         {
             //Aca cargar a la grilla no al cmd
@@ -85,6 +94,8 @@ namespace PPAIDSIEntrega1
             {
                 tomarSeleccionLlamada(arrayIdLlamadas[i]);
             }*/
+
+            // Hacemos visible el label de "Seleccione una llamada"
             label4.Visible = true;
             //cmbSelLamada.Visible = true;
 
@@ -114,6 +125,8 @@ namespace PPAIDSIEntrega1
         
         private void tomarFormaVisualizacion(string formaVisualizacion)
         {
+
+            // GENERACION DE CSV COMENTADO
             /*if (formaVisualizacion == "CSV")
             {
                 List<string> headers = grdLlamada2.Columns.Cast<DataGridViewColumn>()
@@ -157,6 +170,8 @@ namespace PPAIDSIEntrega1
             gestor.tomarFormaVisualizacion(formaVisualizacion);
         }
 
+
+        // FUNCIONES DE SOPORTE PARA AGREGAR FILAS Y LIMPIAR LOS CAMPOS DE LOS GRDS
         public void agregarFilaGrdA(DataGridViewRow fila)
         {
             //grdLlamada2.Rows.Clear();
@@ -180,7 +195,7 @@ namespace PPAIDSIEntrega1
 
         
 
-
+        // Cuando se hace click en el botón de cancelar, se pide confirmación y de confirmarse se cierra la ventana
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             DialogResult resul = MessageBox.Show("¿Esta seguro que desea cancelar?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -195,6 +210,7 @@ namespace PPAIDSIEntrega1
         //nuevo
         
 
+        // Al hacerse click en el grd de llamadas, se muestran el grd con las preguntas y las respuestas seleccionadas
         private void grdLlamada2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             gboxSelecOpGenerar.Visible = true;
@@ -205,6 +221,7 @@ namespace PPAIDSIEntrega1
                 DataGridViewRow filaSeleccionada = grdLlamada2.Rows[indice];
                 seleccionLlamada = int.Parse(filaSeleccionada.Cells["Id"].Value.ToString());
 
+                // Invocamos el método tomarSeleccionLlamada, esta vez sí haciendo referencia a que se toma la selección del usuario
                 tomarSeleccionLlamada(seleccionLlamada);
             }
         }
@@ -219,6 +236,8 @@ namespace PPAIDSIEntrega1
             checkGenerarCSV.Checked = false; 
         }
 
+
+        // Al hacer click en "Confirmar" se toma la forma de visualización elegida
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             if (checkImprimir.Checked==true)

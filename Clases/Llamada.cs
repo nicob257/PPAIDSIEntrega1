@@ -39,11 +39,15 @@ namespace PPAIDSIEntrega1.Clases
             RespuestasCliente = new List<RespuestaDeCliente>();
 
         }
+
+        // Función para verificar si una llamada tiene encuesta respondida
        public bool tieneEncuestaRespondida()
         {
             return EncuestaEnviada;
         }
 
+
+        // Función para verificar si la llamada es del período comprendido entre la fecha de inicio y la fecha de fin elegidas por el usuario
         public bool esDePeriodo(DateTime filtroInicio, DateTime filtroFin)
         {
             DateTime? fecha = null;
@@ -56,8 +60,12 @@ namespace PPAIDSIEntrega1.Clases
             return (fecha >= filtroInicio && fecha <= filtroFin);   
         }
 
+
+
+        // Función para obtener los datos de la llamada, se le pasa como parámetro el gestor asociado para poder guardar en el las respuestas
         public List<string> obtenerDatosLlamada(GestorConsultarEncuesta gestor)
         {
+            // Se crea una lista donde vamos a guardar: Nombre del Cliente Asociado, nombre del Estado actual y  Duracion de llamada
             List<String> textos = new List<string>();
             textos.Add(ClienteAsociado.obtenerNombreCliente());
             for (int i = 0; i < CambiosEst.Count; i++)
@@ -71,10 +79,14 @@ namespace PPAIDSIEntrega1.Clases
             }
             textos.Add(Duracion);
             
+
+            // Seteamos el array de respuestas del gestor
             gestor.setArrayRespuestas(getRespuestas());
             return textos;
 
         }
+
+        // Función para obtener las respuestas del cliente
         public List<string> getRespuestas()
         {
             List<String> textos = new List<string>();
@@ -85,6 +97,8 @@ namespace PPAIDSIEntrega1.Clases
             return textos;
         }
 
+
+        // Función de soporte para obtener los Ids de las Respuestas del Cliente
         public List<int> obtenerIdsRp()
         {
             List<int> listaIds = new List<int>();
@@ -95,22 +109,30 @@ namespace PPAIDSIEntrega1.Clases
             return listaIds;
         }
 
+
+        // Función para obtener el Id de la llamada
         public int getId()
         {
             return Id;
         }
 
+
+        // Función para agregar una respuesta del cliente a una llamada
         public void agregarRc(RespuestaDeCliente rc)
         {
             RespuestasCliente.Add(rc);
         }
 
+
+        // Función para actualizar el estado de la llamada, poniendo como fin del CE anterior la fecha actual y agregando 
+        // un nuevo Ce pasado como parámetro
         public void actualizarEstado(CambioEstado nuevoCe)
         {
             CambiosEst[CambiosEst.Count -1].FinEstado = DateTime.Now;
             CambiosEst.Add(nuevoCe);
         }
 
+        // Getter del Id mediante el nombre "getid"
         public int getid
         {
             get => Id;

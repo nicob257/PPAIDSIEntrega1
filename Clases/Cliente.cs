@@ -19,6 +19,8 @@ namespace PPAIDSIEntrega1.Clases
             NroCelular = nroCelular;
         }
 
+
+        // Función que retorna el Nombre Completo del cliente como string
         public string obtenerNombreCliente()
         {
             return NombreCompleto;
